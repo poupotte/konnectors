@@ -254,13 +254,10 @@ action=getFacture&format=dl&l="
         amount = $($(this).find('.montant')).text()
         amount = amount.replace '€', ''
         amount = parseFloat amount
-        data_fact_id = $(this).attr 'data-fact_id'
-        data_fact_login = $(this).attr 'data-fact_login'
         data_fact_date = $(this).attr 'data-fact_date'
         data_fact_multi = parseFloat $(this).attr 'data-fact_multi'
         data_fact_ligne = $(this).attr 'data-fact_ligne'
-        pdfUrl = billUrl + data_fact_login + "&id=" + data_fact_id + "&\
-date=" + data_fact_date + "&multi=" + data_fact_multi
+        pdfUrl = baseUrl + $(this).find('div.download > a.factBt').attr('href')
         date = moment data_fact_date, 'YYYYMMDD'
         bill =
             amount: amount
